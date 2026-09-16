@@ -1,35 +1,48 @@
-## Projeto
-E-commecer.
+# 🛒 E-commerce Microservices Architecture
 
-O aplicativo ou sistema web deve possuir funcionalidades que permitam o cadastro, editar , ler os itens no cardápio.
+Backend robusto para uma plataforma de e-commerce desenvolvido com **Java e Spring Boot**, projetado com uma arquitetura escalável que evoluiu de um modelo monolítico para **microsserviços distribuídos**, utilizando conteinerização e boas práticas de engenharia de software.
 
-Esse projeto é o desenvolvimento da API Rest.
+---
 
-## Imagem do Projeto
-![Video_2024-03-19_143950](./Video_2024-03-19_143950.gif)
+## 🚀 Tecnologias e Arquitetura
 
-## ⚙️ Funcionalidades
+* **Backend & Core:** Java, Spring Boot, Spring MVC, Spring Data JPA / Hibernate
+* **Banco de Dados:** PostgreSQL, H2 (testes)
+* **Arquitetura:** Microsserviços independentes, Padrão DTO, API Gateway, Camada de Serviço desacoplada
+* **DevOps & Infraestrutura:** Docker, Docker Compose, Docker Networking
+* **Observabilidade:** Spring Boot Actuator (métricas, saúde e diagnóstico)
 
-- [x] e-commecer;
+---
 
-## 🛠 Tecnologias utilizadas
+## 💡 Visão Geral do Sistema
 
-- **[Java 17]**
-- **[Spring Boot 3]**
-- **[Maven]**
-- **[JSON]**
-- **[Lombok]**
+O projeto simula um ecossistema de e-commerce real, estruturado para garantir alta coesão e baixo acoplamento entre os domínios de negócio:
 
-JSONLINT
-## Para Clonar o projeto
-https://github.com/JacquelineCasali/e-commecer
+1. **User Service:** Gerenciamento de usuários, perfis e mapeamento de endereços com relacionamentos JPA otimizados.
+2. **Product Service:** Catálogo de produtos, operações CRUD avançadas e processamento de dados com Java Streams.
+3. **Order & Cart Service:** Lógica de carrinho de compras, controle de sessões de usuário e fluxo transacional de fechamento de pedidos.
 
-# 📁 Acessar a aplicação
+---
 
-##### Enquanto o servidor está ligado, acesse o navegador e entre no endereço abaixo
-http://localhost:8080/swagger-ui/index.html
+## 📊 Observabilidade e Monitoramento
+A aplicação integra o **Spring Boot Actuator** para monitoramento de saúde e métricas em tempo real, expondo endpoints estratégicos (`/health`, `/metrics`, `/beans`, `/loggers`) para garantir visibilidade e facilitar o diagnóstico de falhas em ambiente de produção.
+
+---
+
+## 🐳 Infraestrutura e Execução com Docker
+
+O ecossistema é totalmente conteinerizado, permitindo o provisionamento rápido da aplicação integrada ao banco de dados relacional.
+
+### Pré-requisitos
+* **Java JDK 17+**
+* **Docker & Docker Compose**
+
+### Rodando o Ambiente
+1. Clone o repositório:
+   ```bash
+   git clone [https://github.com/seu-usuario/seu-repositorio.git](https://github.com/seu-usuario/seu-repositorio.git)
+   cd seu-repositorio
 
 
-## 📝 Licença
-
+### 📝 Licença
 Projeto desenvolvido por CasaliTech.
