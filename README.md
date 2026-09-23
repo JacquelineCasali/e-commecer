@@ -35,14 +35,23 @@ O ecossistema é totalmente conteinerizado, permitindo o provisionamento rápido
 
 ### Pré-requisitos
 * **Java JDK 17+**
-* **Docker & Docker Compose**
+* **Docker**
 
 ### Rodando o Ambiente
 1. Clone o repositório:
    ```bash
-   git clone [https://github.com/seu-usuario/seu-repositorio.git](https://github.com/seu-usuario/seu-repositorio.git)
-   cd seu-repositorio
+   git clone https://github.com/JacquelineCasali/e-commecer.git
+   cd e-commecer
 
+ou
+
+### ▶️ Como Executar o Projeto
+
+Basta rodar o seguinte comando diretamente no seu terminal para descarregar e executar a aplicação:
+
+```bash
+docker run -d -p 8080:8080 casalitech/e-commecer:latest
+```
 
 ### 📝 Licença
 Projeto desenvolvido por CasaliTech.
