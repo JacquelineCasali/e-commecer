@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  # Serviço do Banco de Dados (PostgreSQL)
+  postgres-db:
+    image: postgres:15-alpine
+    container_name: ecom-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: ecomdb
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - ecom-net
+
+
+  # Interface de Administração do PostgreSQL (pgAdmin)
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: ecom-pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres-db
+    networks:
+      - ecom-net
+
+
+
+
+
+
+  # Serviço da sua Aplicação Spring Boot
+  app:
+    image: casalitech/e-commecer:latest
+    container_name: ecom-app
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-db:5432/ecomdb
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=123
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+    depends_on:
+      - postgres-db
+    networks:
+      - ecom-net
+
+volumes:
+  pgdata:
+
+networks:
+  ecom-net:
+    driver: bridge
